@@ -1,0 +1,52 @@
+﻿@model Example.Models.CandyList
+@{
+	ViewBag.Title = "Candies";
+}
+
+<h1> Select the type of Candies Below</h1>
+
+<div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Weight(grams)</th>
+				<th>Price($)</th>
+				<th>Select</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			
+			@Html.BeginForm("candies","Candy")
+			
+
+				@for(int i=0 ;i< Model.can.Count; i++)
+			{
+				<tr>
+					<td> @Model.can[i].Name </td>
+					<td> @Model.can[i].Weight</td>
+					<td> @Model.can[i].Price</td>
+					<td> @Html.CheckBoxFor(m=>Model.can[i].IsCheck)</td>
+					
+					<td>@Html.HiddenFor(m=>Model.can[i].Name)</td>
+					<td>@Html.HiddenFor(m=>Model.can[i].Weight)</td>
+					<td>@Html.HiddenFor(m=>Model.can[i].Price)</td>
+					
+				</tr>
+			}
+		</tbody>
+	</table>
+	</div>
+	  <input type="submit" value="Submit"  />
+	  <p> @ViewBag.selectCandy </p>
+
+			
+			
+			
+  
+			
+			
+
+			
+			
